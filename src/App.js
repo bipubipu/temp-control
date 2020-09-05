@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    temperature: 10,
+  };
+  increaseTemperature = () => {
+    if (this.state.temperature <= 29)
+      this.setState({ temperature: this.state.temperature + 1 });
+  };
+  decreaseTemperature = () => {
+    if (this.state.temperature >= 1)
+      this.setState({ temperature: this.state.temperature - 1 });
+  };
+  getClasses = () => {
+    let classes = "temperature-display ";
+    classes += this.state.temperature >= 15 ? "hot" : "cold";
+    return classes;
+  };
+  render() {
+    return (
+      <div className="app-container">
+        <div className="temperature-display-container">
+          <div className={this.getClasses()}>{this.state.temperature}°C</div>
+        </div>
+        <div className="button-container">
+          <button onClick={this.increaseTemperature}>+</button>
+          <button onClick={this.decreaseTemperature}>-</button>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
