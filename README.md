@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+I used Chris Blakely's idea, given CSS but implemented in a different way.  
+
+Check his article: https://www.freecodecamp.org/news/react-beginner-project-tutorial-temperature-control-app/  
+
 ## Available Scripts
 
 In the project directory, you can run:
